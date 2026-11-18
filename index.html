@@ -1,10 +1,202 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My GitHub Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Ally Clarke's personal website — research, projects, and contact information." />
+  <title>Ally Clarke | Graduate Student</title>
+  <style>
+    :root {
+      --ink: #20312f;
+      --muted: #61716d;
+      --paper: #fbfaf6;
+      --card: #ffffff;
+      --green: #2f6d5d;
+      --mint: #e7f0ea;
+      --line: #dce5df;
+      --accent: #d88962;
+      --width: 1050px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--green); text-underline-offset: 3px; }
+    a:hover { color: #194b3e; }
+    .wrap { width: min(var(--width), calc(100% - 40px)); margin: 0 auto; }
+    header { padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { color: var(--ink); font-weight: 750; text-decoration: none; letter-spacing: -.03em; }
+    nav { display: flex; flex-wrap: wrap; gap: 22px; }
+    nav a { color: var(--muted); font-size: .94rem; text-decoration: none; }
+    nav a:hover { color: var(--green); }
+    .hero { padding: 84px 0 72px; display: grid; grid-template-columns: 1.5fr .8fr; gap: 56px; align-items: center; }
+    .eyebrow { color: var(--green); text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 750; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin: 12px 0 18px; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.03; letter-spacing: -.065em; }
+    .lead { max-width: 650px; color: var(--muted); font-size: 1.15rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button { display: inline-block; border: 1px solid var(--green); border-radius: 999px; padding: 10px 18px; color: white; background: var(--green); font-weight: 650; text-decoration: none; }
+    .button.secondary { color: var(--green); background: transparent; }
+    .portrait { min-height: 310px; border-radius: 48% 48% 20px 20px; background: var(--mint); display: grid; place-items: center; padding: 26px; text-align: center; color: var(--green); }
+    .portrait span { max-width: 210px; font-size: .95rem; }
+    section { padding: 60px 0; border-top: 1px solid var(--line); }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 28px; }
+    h2 { margin-bottom: 0; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.2; letter-spacing: -.04em; }
+    .section-note { margin: 0; color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; }
+    .about-grid p { color: var(--muted); }
+    .info-card, .project-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+    .info-card h3, .project-card h3 { margin-bottom: 8px; font-size: 1.1rem; }
+    .info-card p, .project-card p { margin-bottom: 0; color: var(--muted); }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag { border-radius: 999px; padding: 5px 10px; background: var(--mint); color: var(--green); font-size: .82rem; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .project-card { display: flex; flex-direction: column; align-items: flex-start; }
+    .project-card .meta { color: var(--accent); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .project-card a { margin-top: 16px; font-weight: 650; }
+    .timeline { display: grid; gap: 0; }
+    .timeline-item { display: grid; grid-template-columns: 150px 1fr; gap: 22px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .timeline-item:first-child { border-top: 1px solid var(--line); }
+    .timeline-date { color: var(--green); font-weight: 700; }
+    .timeline-item h3 { margin: 0 0 4px; }
+    .timeline-item p { margin: 0; color: var(--muted); }
+    .contact-box { padding: 30px; border-radius: 18px; background: var(--mint); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .contact-box p { margin: 8px 0 0; color: var(--muted); }
+    footer { padding: 26px 0 36px; color: var(--muted); font-size: .9rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; }
+    @media (max-width: 720px) {
+      .hero, .about-grid { grid-template-columns: 1fr; }
+      .hero { padding: 58px 0; gap: 30px; }
+      .portrait { min-height: 210px; border-radius: 20px; }
+      .projects { grid-template-columns: 1fr; }
+      .section-heading, .contact-box { align-items: flex-start; flex-direction: column; }
+      .timeline-item { grid-template-columns: 1fr; gap: 4px; }
+      nav { gap: 12px; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      footer .wrap { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Allyson Clarke</h1>
-  <p>Welcome to my new website.</p>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top">Ally Clarke</a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero" style="border-top:0">
+      <div>
+        <div class="eyebrow">Graduate student · Mechanical Engineering, University of Washington</div>
+        <h1>Hi, I’m Ally.</h1>
+        <p class="lead">I conduct research at the intersection of biomechanics, rehabilitation, and data science. I am interested in how we can promote access to clinical care. This is where I share my research, projects, and the things I’m learning along the way.</p>
+        <div class="actions">
+          <a class="button" href="#research">Explore my work</a>
+          <a class="button secondary" href="mailto:akc02@uw.edu">Email me</a>
+        </div>
+      </div>
+      <div class="portrait" role="img" aria-label="Placeholder for a profile photo">
+        <span>Add a photo here, or replace this panel with a short personal detail.</span>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-heading">
+        <h2>About me</h2>
+        <p class="section-note">A little context about who I am and what I do.</p>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>I’m a graduate student at the University of Washington, working with Dr. Kat Steele in the Neuromechanics and Mobility Lab. My work focuses on monitoring recovery from orthopedic surgery using wearables and video-based assessments.</p>
+          <p>Outside of research, I enjoy running, baking, and doing puzzles. I’m always glad to connect with people working on related questions.</p>
+        </div>
+        <aside class="info-card">
+          <h3>Research interests</h3>
+          <p>Replace these topics with your areas of interest.</p>
+          <div class="tag-list">
+            <span class="tag">[Topic one]</span><span class="tag">[Topic two]</span><span class="tag">[Topic three]</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="section-heading">
+        <h2>Research</h2>
+        <p class="section-note">What I’m working on now.</p>
+      </div>
+      <div class="info-card">
+        <h3>[Your current research project]</h3>
+        <p>In a few sentences, describe the question you’re investigating, your approach, and what you hope the work will contribute. Keep this understandable to readers outside your field.</p>
+        <div class="tag-list"><span class="tag">In progress</span><span class="tag">[Method]</span><span class="tag">[Population / topic]</span></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-heading">
+        <h2>Selected projects</h2>
+        <p class="section-note">Research, tools, and other work.</p>
+      </div>
+      <div class="projects">
+        <article class="project-card">
+          <div class="meta">Project · [Year]</div>
+          <h3>[Project title]</h3>
+          <p>Briefly explain the project, your contribution, and its outcome.</p>
+          <a href="https://github.com/your-username/your-repository">View project →</a>
+        </article>
+        <article class="project-card">
+          <div class="meta">Publication · [Year]</div>
+          <h3>[Paper or presentation title]</h3>
+          <p>Add a short description, citation, or note about the work.</p>
+          <a href="https://doi.org/">Read more →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="cv">
+      <div class="section-heading">
+        <h2>Experience</h2>
+        <p class="section-note">A short overview; link your full CV below.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">[Year–present]</div>
+          <div><h3>[Graduate degree], [University]</h3><p>[Advisor, lab, focus, or relevant role]</p></div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">[Year–Year]</div>
+          <div><h3>[Previous degree or position]</h3><p>[Institution] · [Brief detail]</p></div>
+        </div>
+      </div>
+      <p style="margin-top:22px"><a class="button secondary" href="assets/ally-clarke-cv.pdf">Download my CV (PDF)</a></p>
+    </section>
+
+    <section id="contact">
+      <div class="contact-box">
+        <div><h2>Get in touch</h2><p>For research questions, collaboration, or a friendly hello.</p></div>
+        <a class="button" href="mailto:akc02@uw.edu">akc02@uw.edu</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year"></span> Ally Clarke</span>
+      <span><a href="https://github.com/your-username">GitHub</a> · <a href="https://www.linkedin.com/in/your-profile/">LinkedIn</a></span>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
