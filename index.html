@@ -37,13 +37,16 @@
     .hero { padding: 84px 0 72px; display: grid; grid-template-columns: 1.5fr .8fr; gap: 56px; align-items: center; }
     .eyebrow { color: var(--green); text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 750; }
     h1, h2, h3, p { margin-top: 0; }
-    h1 { margin: 12px 0 18px; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.03; letter-spacing: -.065em; }
+    h1 { margin: 12px 0 18px; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.08; letter-spacing: -.04em; }
     .lead { max-width: 650px; color: var(--muted); font-size: 1.15rem; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-    .button { display: inline-block; border: 1px solid var(--green); border-radius: 999px; padding: 10px 18px; color: white; background: var(--green); font-weight: 650; text-decoration: none; }
+    .button { display: inline-block; border: 1px solid var(--green); border-radius: 5px; padding: 10px 18px; color: white; background: var(--green); font-weight: 600; text-decoration: none; }
     .button.secondary { color: var(--green); background: transparent; }
-    .portrait { min-height: 310px; border-radius: 48% 48% 20px 20px; background: var(--mint); display: grid; place-items: center; padding: 26px; text-align: center; color: var(--green); }
-    .portrait span { max-width: 210px; font-size: .95rem; }
+    .portrait { width: 100%; max-width: 340px; aspect-ratio: 1 / 1; justify-self: end; border-radius: 16px; overflow: hidden; background: var(--mint); display: grid; place-items: center; text-align: center; color: var(--green); }
+    .portrait span { max-width: 210px; padding: 26px; font-size: .95rem; }
+    .portrait img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; }
+    
     section { padding: 60px 0; border-top: 1px solid var(--line); }
     .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 28px; }
     h2 { margin-bottom: 0; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.2; letter-spacing: -.04em; }
@@ -72,7 +75,7 @@
     @media (max-width: 720px) {
       .hero, .about-grid { grid-template-columns: 1fr; }
       .hero { padding: 58px 0; gap: 30px; }
-      .portrait { min-height: 210px; border-radius: 20px; }
+      .portrait { justify-self: center; }
       .projects { grid-template-columns: 1fr; }
       .section-heading, .contact-box { align-items: flex-start; flex-direction: column; }
       .timeline-item { grid-template-columns: 1fr; gap: 4px; }
@@ -99,12 +102,12 @@
   <main id="top" class="wrap">
     <section class="hero" style="border-top:0">
       <div>
-        <div class="eyebrow">Graduate student · Mechanical Engineering, University of Washington</div>
-        <h1>Hi, I’m Ally.</h1>
-        <p class="lead">I conduct research at the intersection of biomechanics, rehabilitation, and data science. I am interested in how we can promote access to clinical care. This is where I share my research, projects, and the things I’m learning along the way.</p>
+        <div class="eyebrow">Graduate student · [Department / University]</div>
+        <h1>Ally Clarke</h1>
+        <p class="lead">I conduct research at the intersection of biomechanics, rehabilitation, and data science. I am interested in how we can promote access to clinical care. Explore my website to learn more about my research and interests!</p>
         <div class="actions">
-          <a class="button" href="#research">Explore my work</a>
-          <a class="button secondary" href="mailto:akc02@uw.edu">Email me</a>
+          <a class="button" href="#research">View research</a>
+          <a class="button secondary" href="mailto:akc02@uw.edu">Email</a>
         </div>
       </div>
       <div class="portrait" role="img" aria-label="Placeholder for a profile photo">
@@ -115,7 +118,7 @@
     <section id="about">
       <div class="section-heading">
         <h2>About me</h2>
-        <p class="section-note">A little context about who I am and what I do.</p>
+        <p class="section-note">Academic background and current focus.</p>
       </div>
       <div class="about-grid">
         <div>
@@ -135,7 +138,7 @@
     <section id="research">
       <div class="section-heading">
         <h2>Research</h2>
-        <p class="section-note">What I’m working on now.</p>
+        <p class="section-note">Current research focus.</p>
       </div>
       <div class="info-card">
         <h3>[Your current research project]</h3>
@@ -147,7 +150,7 @@
     <section id="projects">
       <div class="section-heading">
         <h2>Selected projects</h2>
-        <p class="section-note">Research, tools, and other work.</p>
+        <p class="section-note">Selected academic and professional work.</p>
       </div>
       <div class="projects">
         <article class="project-card">
@@ -168,7 +171,7 @@
     <section id="cv">
       <div class="section-heading">
         <h2>Experience</h2>
-        <p class="section-note">A short overview; link your full CV below.</p>
+        <p class="section-note">Education and professional appointments.</p>
       </div>
       <div class="timeline">
         <div class="timeline-item">
@@ -185,7 +188,7 @@
 
     <section id="contact">
       <div class="contact-box">
-        <div><h2>Get in touch</h2><p>For research questions, collaboration, or a friendly hello.</p></div>
+        <div><h2>Get in touch</h2><p>For academic inquiries and professional correspondence.</p></div>
         <a class="button" href="mailto:akc02@uw.edu">akc02@uw.edu</a>
       </div>
     </section>
